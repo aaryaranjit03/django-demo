@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Air Quality Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Air Quality Dashboard</h1>
+
+    <canvas id="aqiChart" width="600" height="400"></canvas>
+
+    <script>
+        const ctx = document.getElementById('aqiChart').getContext('2d');
+
+        const cityNames = {{ cities|safe }};
+        const aqiValues = {{ aqi_values|safe }};
+
+        const aqiChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: cityNames,
+                datasets: [{
+                    label: 'AQI (1=Good, 5=Very Poor)',
+                    data: aqiValues,
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: { beginAtZero: true, max: 5 }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

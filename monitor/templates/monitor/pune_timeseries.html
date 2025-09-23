@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Pune Air Quality Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="timeSeriesChart" width="900" height="400"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    const ctx = document.getElementById('timeSeriesChart').getContext('2d');
+
+    let myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [],
+            datasets: [
+                { label: 'Temperature (°C)', data: [], borderColor: 'red', fill: false },
+                { label: 'Humidity (%)', data: [], borderColor: 'blue', fill: false },
+                { label: 'AQI (1-5)', data: [], borderColor: 'green', fill: false }
+            ]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: 'top' },
+                title: { display: true, text: 'Pune Air Quality Time-Series', font: { size: 24 } }
+            },
+            scales: { y: { beginAtZero: true, suggestedMax: 5 } }
+        }
+    });
+
+    function fetchData() {
+        fetch('/api/dashboard/pune/data/')
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // check in browser console
+            myChart.data.labels = data.timestamps;
+            myChart.data.datasets[0].data = data.temps;
+            myChart.data.datasets[1].data = data.humidities;
+            myChart.data.datasets[2].data = data.aqi_values;
+            myChart.update();
+        })
+        .catch(err => console.error(err));
+    }
+
+    fetchData(); // initial load
+    setInterval(fetchData, 30000); // fetch every 30s
+    </script>
+</body>
+</html>
