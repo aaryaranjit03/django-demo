@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,9 +82,7 @@ WSGI_APPLICATION = 'airquality_app.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.parse(
-        "postgresql://postgres.wocqvjnjoflecsbzwowi:D2pnlI0z3y16WyTo@aws-1-ap-southeast-1.pooler.supabase.com:5432/postgres"
-    )
+    "default": dj_database_url.parse(config("DATABASE_URL"))
 }
 
 

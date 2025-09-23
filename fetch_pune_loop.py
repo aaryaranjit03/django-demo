@@ -16,7 +16,7 @@ def fetch_pune():
     print(f"{datetime.now()} - Pune data saved: {data}")
 
 if __name__ == "__main__":
-    interval_seconds = 600 
+    interval_seconds = 60 
     while True:
         fetch_pune()
         time.sleep(interval_seconds)

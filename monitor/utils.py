@@ -1,6 +1,8 @@
 import requests
+import os
+from decouple import config
 
-API_KEY = "d01b2fb5c66456757d22ad440e6fd208"
+API_KEY = config("OPENWEATHER_API_KEY")
 
 def fetch_air_quality(city_name, lat, lon):
     # Fetch AQI
