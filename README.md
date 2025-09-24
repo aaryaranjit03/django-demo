@@ -46,6 +46,7 @@ This will manually add an entry to the database for the city of your choosing.
 1. Clone the repository
 
 git clone https://github.com/aaryaranjit03/django-demo.git
+
 cd django-demo
 
 
