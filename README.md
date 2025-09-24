@@ -2,7 +2,6 @@
 
 A simple web application built with Django, integrated with Supabase (PostgreSQL). The app supports CRUD operations through REST APIs and can be shared publicly using ngrok for easy testing and demos.
 
----
 
 ## Features
 
@@ -11,7 +10,6 @@ A simple web application built with Django, integrated with Supabase (PostgreSQL
 - Easy local setup with Python
 - Public access for demos using ngrok
 
----
 
 ## Tech Stack
 
@@ -20,7 +18,6 @@ A simple web application built with Django, integrated with Supabase (PostgreSQL
 - Supabase (PostgreSQL)  
 - ngrok for public sharing
 
----
 
 ## Setup Instructions
 
@@ -42,12 +39,14 @@ In a REST client (such as Postman), use the following options:
 
 This will manually add an entry to the database for the city of your choosing.
 
+
+
 ### Option 2: Run from GitHub Repository (Full Setup)
 
 1. Clone the repository
 
-git clone <your_repo_url>
-cd <repo_folder>
+git clone https://github.com/aaryaranjit03/django-demo.git
+cd django-demo
 
 
 2. Create and activate a virtual environment
@@ -69,8 +68,11 @@ pip install -r requirements.txt
 Create a .env file with:
 
 DATABASE_URL=<your_supabase_database_url>
+
 SECRET_KEY=<your_django_secret_key>
+
 OPENWEATHER_API_KEY=<your_openweather_api_key>
+
 DEBUG=True (For running locally)
 
 
