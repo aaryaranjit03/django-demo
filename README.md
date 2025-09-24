@@ -112,7 +112,7 @@ python manage.py migrate
 ```bash
 python manage.py runserver
 ```
-* Now, you can perform CRUD operations as explained above, using http://127.0.0.1:8000/api/fetch_city and http://127.0.0.1:8000/api/citydata.
+* Now, you can perform CRUD operations as explained above, using http://127.0.0.1:8000/api/citydata/ and http://127.0.0.1:8000/api/fetch_city/.
 
 7. **Collect realtime Air Quality data for Pune**
 
